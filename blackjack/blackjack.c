@@ -22,7 +22,7 @@ typedef struct {
 } card;
 
 int main(void) {
-  int deck_count = 1;
+  int deck_count = 2;
 
   card ace = {"ace", ACE};
   card two = {"two", TWO};
@@ -46,13 +46,14 @@ int main(void) {
   int card_count = 0;
 
   for (int i = 0, j = 0; i < deck_length; i++) {
-        deck[i] = card_types[j];
-        card_count++;
+    deck[i] = card_types[j];
+    card_count++;
 
-        if (card_count % 4 == 0) {
-            j++;
-        }
+    if (card_count % (4 * deck_count) == 0) {
+      j++;
+    }
   }
 
-  printf("%s is the 47th card in the deck", deck[47].name);
+  int card_num = 52;
+  printf("%s is card %d in the deck", deck[card_num - 1].name, card_num);
 }
